@@ -1,0 +1,94 @@
+<html>
+
+<head>
+  <link rel="stylesheet" href="mycss/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Sofia" rel="stylesheet" />
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <div class="container">
+    <label>
+    <div class="heart">
+      <img src="photos/toga.png "></img>
+   
+    </div>
+    <input id="messageState" type="checkbox" style="display:none"/>
+    </label>
+    <div class="message">
+      <img class="skye-img"  src="photos/skye.jpg">
+      <h1>To my Dearest Skye,</h1>
+      
+      <h2>With Honors</h2>
+      <h2>Best In Conduct</h2>
+      <h2>Leadership Awardee</h2>
+  <p>
+    "Congratulations on your graduation! 🎓 Today marks the culmination of your hard work, dedication, and resilience. I'm incredibly proud of all you've achieved and the person you've become. As you embark on this new chapter of your life, remember that your potential is limitless, and I'll be cheering you on every step of the way. Here's to your success, 
+    my special someone. You deserve all the happiness and fulfillment in the world. Cheers to new beginnings!"
+
+  </p>
+
+  <p>As you receive your diploma, remember that it's not just a piece of paper, it's an indication to the love and support that surrounds you especially your family, to your momma and poppa, a reminder of the countless hours 
+    of hard work and sacrifice they're poured into your dreams. You've not only captured my admiration but also my unwavering love and devotion.</p>
+  
+  <p>So here's to you, my extraordinary graduate, Skye. May this day be as special and radiant as you are, and may your journey ahead be adorned with boundless love, joy, and success. Congratulations, my Skye. You make the world a better place, and I'm endlessly grateful to share this moment with you.</p>
+  
+  <p class="myname">Sincerely yours,</p> 
+  <p class="myname">Your Adi 🤍</p>
+  </p> 
+   
+  <p class="vm-note">My voice message, Click mo Skye hehe</p>
+  <div class="audio1">
+
+  <audio controls>
+    <source src="audio/My-Message.mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+  </audio>
+
+  </div>
+
+
+</div>
+
+</div>
+  
+  
+  <script>
+    $("#messageState").on("change", (x) => {
+	$(".message").removeClass("openNor").removeClass("closeNor");
+	if ($("#messageState").is(":checked")) {
+		$(".message").removeClass("closed").removeClass("no-anim").addClass("openNor");
+		$(".heart").removeClass("closeHer").removeClass("openedHer").addClass("openHer");
+		$(".container").stop().animate({"backgroundColor": "#f48fb1"}, 2000);
+		console.log("Abrindo");
+	} else {
+		$(".message").removeClass("no-anim").addClass("closeNor");
+		$(".heart").removeClass("openHer").removeClass("openedHer").addClass("closeHer");
+		$(".container").stop().animate({"backgroundColor": "#fce4ec"}, 2000);
+		console.log("fechando");
+	}
+});
+
+$(".message").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+	console.log("Animation End");
+	if ($(".message").hasClass("closeNor"))
+		$(".message").addClass("closed");
+	$(".message").removeClass("openNor").removeClass("closeNor").addClass("no-anim");
+});
+
+$(".heart").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+	console.log("Animation End");
+	if (!$(".heart").hasClass("closeHer"))
+		$(".heart").addClass("openedHer").addClass("beating");
+	else
+		$(".heart").addClass("no-anim").removeClass("beating");
+	$(".heart").removeClass("openHer").removeClass("closeHer");
+});
+  </script>
+</body>
+
+</html>
